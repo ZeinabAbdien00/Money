@@ -69,10 +69,9 @@
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="50dp"
                     android:background="@drawable/main_button"
-                    android:backgroundTint="@color/white"
                     android:text="@string/login"
                     android:textAllCaps="false"
-                    android:textColor="@color/base"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -91,6 +90,49 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+                <TextView
+                    android:id="@+id/tv_or_login_with"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/or_signup_with"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_signup" />
+
+                <LinearLayout
+                    android:id="@+id/linear_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_or_login_with">
+
+                    <ImageView
+                        android:id="@+id/login_with_facebook"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_facebook"
+                        app:layout_constraintTop_toBottomOf="@id/tv_or_login_with" />
+
+                    <ImageView
+                        android:id="@+id/login_with_google"
+                        android:layout_gravity="center"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="10dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_google"
+                        app:layout_constraintTop_toBottomOf="@id/tv_or_login_with" />
+
+                </LinearLayout>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
