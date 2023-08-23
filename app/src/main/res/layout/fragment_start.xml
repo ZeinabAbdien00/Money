@@ -60,8 +60,10 @@
                     android:layout_marginTop="50dp"
                     android:background="@drawable/main_button"
                     android:text="@string/login"
+                    android:textStyle="bold"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -77,6 +79,8 @@
                     android:text="@string/sign_up"
                     android:textAllCaps="false"
                     android:textColor="@color/base"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btn_login" />
@@ -107,20 +111,20 @@
                         android:id="@+id/login_with_facebook"
                         android:layout_width="70dp"
                         android:layout_height="55dp"
-                        android:padding="7dp"
                         android:background="@drawable/social_shape"
                         android:backgroundTint="@color/white"
+                        android:padding="7dp"
                         android:src="@drawable/ic_facebook"
                         app:layout_constraintTop_toBottomOf="@id/tv_or_login_with" />
 
                     <ImageView
                         android:id="@+id/login_with_google"
-                        android:layout_gravity="center"
                         android:layout_width="70dp"
                         android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
                         android:background="@drawable/social_shape"
                         android:backgroundTint="@color/white"
-                        android:layout_marginStart="10dp"
                         android:padding="6dp"
                         android:src="@drawable/ic_google"
                         app:layout_constraintTop_toBottomOf="@id/tv_or_login_with" />
