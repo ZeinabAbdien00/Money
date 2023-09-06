@@ -1,17 +1,29 @@
 package com.iti.moneyapp.ui.setup.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.iti.moneyapp.ui.setup.SetupRepository
 import com.iti.moneyapp.utils.validation.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class LoginViewModel : ViewModel() {
+
+    private val setupRepository = SetupRepository()
 
     private val _email = MutableLiveData<EmailError?>()
     val email: LiveData<EmailError?> = _email
 
     private val _password = MutableLiveData<LoginPasswordError?>()
     val password: LiveData<LoginPasswordError?> = _password
+
+    private val _errorLogin = MutableLiveData<String>()
+    val errorLogin: LiveData<String> = _errorLogin
+
 
     fun isValidLogin(email: String, password: String): Boolean {
 
@@ -43,5 +55,19 @@ class LoginViewModel : ViewModel() {
         }
         return isValidEmail && isValidPassword
     }
+
+    fun login(email: String, password: String) {
+        CoroutineScope(Dispatchers.Main).launch {
+            val response = setupRepository.loginWithEmail(email, password)
+            try {
+                response.await()
+                _errorLogin.value = "true"
+            } catch (e: Exception) {
+                _errorLogin.value = e.toString()
+            }
+        }
+    }
+
+    fun forgotPassword(email: String) = setupRepository.forgotPassword(email)
 
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.iti.moneyapp.databinding.FragmentStartBinding
 
@@ -34,6 +35,12 @@ class StartFragment : Fragment() {
             }
             btnSignup.setOnClickListener {
                 findNavController().navigate(StartFragmentDirections.actionStartFragmentToSignUpFragment())
+            }
+            loginWithFacebook.setOnClickListener {
+                Toast.makeText(requireContext() , "Coming Soon" , Toast.LENGTH_SHORT).show()
+            }
+            loginWithGoogle.setOnClickListener {
+                Toast.makeText(requireContext() , "Coming Soon" , Toast.LENGTH_SHORT).show()
             }
         }
     }
