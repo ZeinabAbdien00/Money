@@ -11,7 +11,7 @@ class SetupRepository {
 
 
     fun loginWithEmail(email: String, password: String) =
-        getAuthFirebase().signInWithEmailAndPassword(email, password).isSuccessful
+        getAuthFirebase().signInWithEmailAndPassword(email, password)
 
     fun forgotPassword(email: String) {
         getAuthFirebase().sendPasswordResetEmail(email)

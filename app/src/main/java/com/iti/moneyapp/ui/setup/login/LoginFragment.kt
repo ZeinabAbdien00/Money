@@ -1,14 +1,18 @@
 package com.iti.moneyapp.ui.setup.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import com.iti.moneyapp.databinding.FragmentLoginBinding
+import com.iti.moneyapp.utils.Constants.Companion.accountNotFound
+import com.iti.moneyapp.utils.Constants.Companion.passwordLoginError
 import com.iti.moneyapp.utils.hideKeypad
 
 class LoginFragment : Fragment() {
@@ -25,15 +29,13 @@ class LoginFragment : Fragment() {
     ): View {
         binding = FragmentLoginBinding.inflate(layoutInflater)
 
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setOnClickListeners()
-
+        observePass()
     }
 
     private fun setOnClickListeners() {
@@ -74,12 +76,8 @@ class LoginFragment : Fragment() {
         if (email.isNotEmpty() && password.isNotEmpty()) {
             isValidLoginData = viewModel.isValidLogin(email = email, password = password)
             if (isValidLoginData) {
-                if (viewModel.login(email, password)) {
-                    Toast.makeText(requireContext(), "Account Existed", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(), "Account Not Found", Toast.LENGTH_SHORT).show()
-                }
-
+                viewModel.login(email, password)
+                observePass()
             } else if (viewModel.email.value.toString().isNotEmpty()) {
                 Toast.makeText(context, "Invalid email", Toast.LENGTH_LONG).show()
             } else if (viewModel.password.value.toString().isNotEmpty()) {
@@ -90,4 +88,25 @@ class LoginFragment : Fragment() {
         }
     }
 
+    private fun observePass() {
+        viewModel.errorLogin.observe(viewLifecycleOwner) {
+            when (it) {
+                passwordLoginError -> {
+                    Log.d("LOG_TAG", "invalid")
+                    toast("The password is invalid")
+                }
+                accountNotFound -> {
+                    Log.d("LOG_TAG", "No")
+                    toast("No Account use this Email")
+                }
+                "true" -> {
+                    toast("Account Existed")
+                }
+            }
+        }
+    }
+
+    private fun toast(msg: String){
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+    }
 }
