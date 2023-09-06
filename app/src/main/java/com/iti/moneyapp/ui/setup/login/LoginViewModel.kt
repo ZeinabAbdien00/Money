@@ -3,9 +3,12 @@ package com.iti.moneyapp.ui.setup.login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.iti.moneyapp.ui.setup.SetupRepository
 import com.iti.moneyapp.utils.validation.*
 
 class LoginViewModel : ViewModel() {
+
+    private val setupRepository = SetupRepository()
 
     private val _email = MutableLiveData<EmailError?>()
     val email: LiveData<EmailError?> = _email
@@ -43,5 +46,9 @@ class LoginViewModel : ViewModel() {
         }
         return isValidEmail && isValidPassword
     }
+
+    fun login(email: String, password: String) = setupRepository.loginWithEmail(email, password)
+
+    fun forgotPassword(email: String) = setupRepository.forgotPassword(email)
 
 }

@@ -8,19 +8,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.auth.FirebaseAuth
 import com.iti.moneyapp.databinding.FragmentLoginBinding
 import com.iti.moneyapp.utils.hideKeypad
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var auth: FirebaseAuth
     private lateinit var email: String
     private lateinit var password: String
     private var isValidLoginData: Boolean = false
@@ -32,7 +25,6 @@ class LoginFragment : Fragment() {
     ): View {
         binding = FragmentLoginBinding.inflate(layoutInflater)
 
-        auth = FirebaseAuth.getInstance()
 
         return binding.root
     }
@@ -54,14 +46,22 @@ class LoginFragment : Fragment() {
                 findNavController().navigateUp()
             }
             tvForgotPassword.setOnClickListener {
-
-                if (etEmail.text.toString().isNotEmpty()) {
-                    auth.sendPasswordResetEmail(etEmail.text.toString())
-                    Toast.makeText(requireContext(), "Check your email", Toast.LENGTH_SHORT).show()
-                } else
-                    Toast.makeText(requireContext(), "Enter your email", Toast.LENGTH_SHORT).show()
+                forgetPassword()
             }
         }
+    }
+
+    private fun forgetPassword() {
+        setUserData()
+        if (email.isNotEmpty()) {
+            if (viewModel.isValidLogin(email = email, password = "S")) {
+                viewModel.forgotPassword(email)
+                Toast.makeText(requireContext(), "Check your email", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Invalid email", Toast.LENGTH_SHORT).show()
+            }
+        } else
+            Toast.makeText(requireContext(), "Enter your email", Toast.LENGTH_SHORT).show()
     }
 
     private fun setUserData() {
@@ -74,16 +74,12 @@ class LoginFragment : Fragment() {
         if (email.isNotEmpty() && password.isNotEmpty()) {
             isValidLoginData = viewModel.isValidLogin(email = email, password = password)
             if (isValidLoginData) {
-                CoroutineScope(Dispatchers.IO).launch {
-                    try {
-                        auth.signInWithEmailAndPassword(email, password).await()
-
-                    } catch (e: Exception) {
-                        withContext(Dispatchers.Main) {
-                            Toast.makeText(context, "No Account \n $e", Toast.LENGTH_LONG).show()
-                        }
-                    }
+                if (viewModel.login(email, password)) {
+                    Toast.makeText(requireContext(), "Account Existed", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "Account Not Found", Toast.LENGTH_SHORT).show()
                 }
+
             } else if (viewModel.email.value.toString().isNotEmpty()) {
                 Toast.makeText(context, "Invalid email", Toast.LENGTH_LONG).show()
             } else if (viewModel.password.value.toString().isNotEmpty()) {
