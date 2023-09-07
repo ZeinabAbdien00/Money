@@ -79,6 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/email"
+                    android:inputType="textEmailAddress"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="10dp"
                     android:textColor="@color/white"
