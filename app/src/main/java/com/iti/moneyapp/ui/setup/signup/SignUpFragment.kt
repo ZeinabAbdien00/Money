@@ -1,6 +1,8 @@
 package com.iti.moneyapp.ui.setup.signup
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +11,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.iti.moneyapp.databinding.FragmentSignUpBinding
+import com.iti.moneyapp.model.auth.AuthModel
+import com.iti.moneyapp.ui.home.HomeActivity
+import com.iti.moneyapp.utils.Constants
 import com.iti.moneyapp.utils.hideKeypad
 import com.iti.moneyapp.utils.validation.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SignUpFragment : Fragment() {
 
@@ -67,21 +75,38 @@ class SignUpFragment : Fragment() {
                     confirmPassword = confirmPassword
                 )
                 if (isValidSignUpData) {
-                    if (viewModel.signIn(email, password)) {
-                        Toast.makeText(requireContext(), "Account Created", Toast.LENGTH_SHORT)
-                            .show()
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "Account is Using this email",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
+                    observeSignUp()
                 } else {
                     showError()
                     viewModel.resetData()
                 }
+            }
+        }
+    }
+
+    private fun observeSignUp() {
+        viewModel.errorSignup.observe(viewLifecycleOwner) {
+            when (it) {
+                "true" -> {
+                    val userData = AuthModel(
+                        userId = viewModel.userId(),
+                        fullName = fullName,
+                        email = email,
+                        phone = phoneNumber,
+                        password = password,
+                        imgUri = ""
+                    )
+                    saveDataStore(userData)
+                    CoroutineScope(Dispatchers.IO).launch {
+                        startActivity(Intent(requireActivity(), HomeActivity::class.java))
+                        requireActivity().finish()
+                    }
+                }
+                else -> Toast.makeText(
+                    requireContext(),
+                    it.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -168,6 +193,12 @@ class SignUpFragment : Fragment() {
             FullNameError.IS_SHORT -> "Name is short"
             FullNameError.IS_LONG -> "Name is long"
             else -> "Full name field is empty"
+        }
+    }
+
+    private fun saveDataStore(data: AuthModel) {
+        CoroutineScope(Dispatchers.IO).launch {
+            viewModel.saveUserDataAndLogFlag(data, context = context)
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.iti.moneyapp.ui.setup.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,12 +9,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
+import com.iti.moneyapp.MyApplication.Companion.dataStore
 import com.iti.moneyapp.databinding.FragmentLoginBinding
+import com.iti.moneyapp.model.auth.AuthModel
+import com.iti.moneyapp.ui.home.HomeActivity
 import com.iti.moneyapp.utils.Constants.Companion.accountNotFound
 import com.iti.moneyapp.utils.Constants.Companion.passwordLoginError
 import com.iti.moneyapp.utils.hideKeypad
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
 
@@ -22,6 +28,7 @@ class LoginFragment : Fragment() {
     private lateinit var password: String
     private var isValidLoginData: Boolean = false
     private val viewModel: LoginViewModel by viewModels()
+    private lateinit var saveUser: AuthModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -92,21 +99,30 @@ class LoginFragment : Fragment() {
         viewModel.errorLogin.observe(viewLifecycleOwner) {
             when (it) {
                 passwordLoginError -> {
-                    Log.d("LOG_TAG", "invalid")
                     toast("The password is invalid")
                 }
                 accountNotFound -> {
-                    Log.d("LOG_TAG", "No")
                     toast("No Account use this Email")
                 }
                 "true" -> {
-                    toast("Account Existed")
+                    saveUser = AuthModel("id", "username", "email", "phone", "password", "Uri")
+                    saveDataStore(saveUser)
+                    CoroutineScope(Dispatchers.IO).launch {
+                        startActivity(Intent(requireActivity(), HomeActivity::class.java))
+                        requireActivity().finish()
+                    }
                 }
             }
         }
     }
 
-    private fun toast(msg: String){
+    private fun toast(msg: String) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun saveDataStore(data: AuthModel) {
+        CoroutineScope(Dispatchers.IO).launch {
+            viewModel.saveUserDataAndLogFlag(data, context = context)
+        }
     }
 }
