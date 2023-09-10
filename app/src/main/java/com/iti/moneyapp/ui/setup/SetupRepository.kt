@@ -12,7 +12,7 @@ class SetupRepository {
     private fun getAuthFirebase() = FirebaseAuth.getInstance()
 
     fun signWithEmail(email: String, password: String) =
-        getAuthFirebase().createUserWithEmailAndPassword(email, password).isSuccessful
+        getAuthFirebase().createUserWithEmailAndPassword(email, password)
 
 
     fun loginWithEmail(email: String, password: String) =
@@ -29,5 +29,8 @@ class SetupRepository {
         MyApplication.dataStore.saveUser(user)
 
     }
+
+    fun userId() = getAuthFirebase().currentUser?.uid ?: ""
+
 }
 
