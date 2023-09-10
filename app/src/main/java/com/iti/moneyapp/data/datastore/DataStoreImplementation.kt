@@ -66,21 +66,21 @@ class DataStoreImplementation(
     }
 
     override suspend fun saveUser(saveData: AuthModel) {
-//        val name = saveData.fullName ?: "No Name"
-//        val email = saveData.email ?: "No email"
-//        val phone = saveData.phone ?: "No phone"
-//        val password = saveData.password ?: "No password"
-//        val imageUri = saveData.imgUri ?: ""
-//        val userId = saveData.userId ?: ""
-//
-//        dataStoreO?.edit { settings ->
-//            settings[stringPreferencesKey(USER_NAME)] = name
-//            settings[stringPreferencesKey(USER_EMAIL)] = email
-//            settings[stringPreferencesKey(USER_PHONE)] = phone
-//            settings[stringPreferencesKey(USER_PASSWORD)] = password
-//            settings[stringPreferencesKey(USER_IMAGE_URL)] = imageUri
-//            settings[stringPreferencesKey(USER_ID)] = userId
-//        }
+        val name = saveData.fullName ?: "No Name"
+        val email = saveData.email ?: "No email"
+        val phone = saveData.phone ?: "No phone"
+        val password = saveData.password ?: "No password"
+        val imageUri = saveData.imgUri ?: ""
+        val userId = saveData.userId ?: ""
+
+        dataStoreO?.edit { settings ->
+            settings[stringPreferencesKey(USER_NAME)] = name
+            settings[stringPreferencesKey(USER_EMAIL)] = email
+            settings[stringPreferencesKey(USER_PHONE)] = phone
+            settings[stringPreferencesKey(USER_PASSWORD)] = password
+            settings[stringPreferencesKey(USER_IMAGE_URL)] = imageUri
+            settings[stringPreferencesKey(USER_ID)] = userId
+        }
     }
 
     override suspend fun isPassedOnBoarding(): Boolean = withContext(dispatcher) {
