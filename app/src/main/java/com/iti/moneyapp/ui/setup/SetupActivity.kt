@@ -39,15 +39,6 @@ class SetupActivity : AppCompatActivity() {
                 splashScreen.setKeepOnScreenCondition { false }
 
             }
-//            if (dataStore.isPassedOnBoarding()) {
-//                setFindNavController(R.id.loginFragment)
-//                splashScreen.setKeepOnScreenCondition { false }
-//
-//            } else {
-//                setFindNavController(R.id.onBoardingFragment)
-//                splashScreen.setKeepOnScreenCondition { false }
-//
-//            }
         }
     }
 

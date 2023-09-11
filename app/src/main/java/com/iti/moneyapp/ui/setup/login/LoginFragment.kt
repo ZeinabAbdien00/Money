@@ -2,7 +2,6 @@ package com.iti.moneyapp.ui.setup.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.iti.moneyapp.MyApplication.Companion.dataStore
 import com.iti.moneyapp.databinding.FragmentLoginBinding
 import com.iti.moneyapp.model.auth.AuthModel
 import com.iti.moneyapp.ui.home.HomeActivity

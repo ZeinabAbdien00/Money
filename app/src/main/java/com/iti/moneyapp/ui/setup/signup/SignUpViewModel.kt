@@ -81,7 +81,6 @@ class SignUpViewModel : ViewModel() {
             }
             is ValidationResult.Success -> {
                 _phoneNumber.value = null
-
                 true
             }
 

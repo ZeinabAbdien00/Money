@@ -75,7 +75,7 @@ class LoginViewModel : ViewModel() {
     fun forgotPassword(email: String) = setupRepository.forgotPassword(email)
 
     suspend fun saveUserDataAndLogFlag(user: AuthModel, context: Context?) {
-        setupRepository.saveUserLogin(user , context)
+        setupRepository.saveUserLogin(user, context)
     }
 
 }

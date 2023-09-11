@@ -22,7 +22,7 @@ class SetupRepository {
         getAuthFirebase().sendPasswordResetEmail(email)
     }
 
-    suspend fun saveUserLogin(user: AuthModel, context: Context?){
+    suspend fun saveUserLogin(user: AuthModel, context: Context?) {
         MyApplication.dataStore = DataStoreImplementation(appContext = context, Dispatchers.IO)
         MyApplication.dataStore.setLogged(true)
         MyApplication.dataStore.setUSerLogged(true)

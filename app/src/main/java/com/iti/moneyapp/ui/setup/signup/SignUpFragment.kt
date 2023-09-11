@@ -2,7 +2,6 @@ package com.iti.moneyapp.ui.setup.signup
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.iti.moneyapp.databinding.FragmentSignUpBinding
 import com.iti.moneyapp.model.auth.AuthModel
 import com.iti.moneyapp.ui.home.HomeActivity
-import com.iti.moneyapp.utils.Constants
 import com.iti.moneyapp.utils.hideKeypad
 import com.iti.moneyapp.utils.validation.*
 import kotlinx.coroutines.CoroutineScope
@@ -75,6 +73,7 @@ class SignUpFragment : Fragment() {
                     confirmPassword = confirmPassword
                 )
                 if (isValidSignUpData) {
+                    viewModel.signIn(email, password)
                     observeSignUp()
                 } else {
                     showError()
