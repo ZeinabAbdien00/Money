@@ -1,30 +1,30 @@
-package com.iti.moneyapp.ui.home
+package com.iti.moneyapp.ui.home.dashboard
 
-import android.graphics.drawable.Icon
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavHostController
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
-import com.iti.moneyapp.R
 import com.iti.moneyapp.adapter.home.TapViewPagerAdapter
-import com.iti.moneyapp.databinding.ActivityHomeBinding
+import com.iti.moneyapp.databinding.FragmentDashboardBinding
 
-class HomeActivity : AppCompatActivity() {
+class DashboardFragment : Fragment() {
 
-    private lateinit var binding: ActivityHomeBinding
-
+    private lateinit var binding: FragmentDashboardBinding
     private lateinit var adapter: TapViewPagerAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentDashboardBinding.inflate(layoutInflater)
 
-        adapter = TapViewPagerAdapter(supportFragmentManager, lifecycle)
+        adapter = TapViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
 
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Income"))
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Expense"))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Details"))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Community"))
 
         binding.viewPager.adapter = adapter
 
@@ -35,12 +35,9 @@ class HomeActivity : AppCompatActivity() {
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
-
-
             }
         })
 
@@ -51,5 +48,8 @@ class HomeActivity : AppCompatActivity() {
                 binding.tabLayout.selectTab(binding.tabLayout.getTabAt(position))
             }
         })
+
+        return binding.root
     }
+
 }

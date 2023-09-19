@@ -6,4 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeActivity">
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="190dp"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/tab_indicator"
+        android:paddingStart="2dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicator="@drawable/tab_indicator"
+        app:tabIndicatorColor="@color/base"
+        app:tabIndicatorGravity="stretch"
+        app:tabMode="scrollable"
+        app:tabPadding="2dp"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/base" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
