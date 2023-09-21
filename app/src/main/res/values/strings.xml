@@ -21,4 +21,6 @@
     <string name="phone_number">Phone number</string>
     <string name="save">Save</string>
     <string name="your_wallet">Your Wallet</string>
+    <string name="add_not_implemented_yet"> Add \n Not Implemented Yet</string>
+    <string name="setting_not_implemented_yet"> Setting \n Not Implemented Yet</string>
 </resources>
