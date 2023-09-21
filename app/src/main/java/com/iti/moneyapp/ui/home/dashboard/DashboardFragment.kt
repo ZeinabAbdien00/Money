@@ -23,8 +23,8 @@ class DashboardFragment : Fragment() {
 
         adapter = TapViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
 
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Details"))
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Community"))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Income"))
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Expense"))
 
         binding.viewPager.adapter = adapter
 
@@ -48,8 +48,6 @@ class DashboardFragment : Fragment() {
                 binding.tabLayout.selectTab(binding.tabLayout.getTabAt(position))
             }
         })
-
         return binding.root
     }
-
 }
