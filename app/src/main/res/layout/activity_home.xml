@@ -6,35 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment_home"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="190dp"
-        android:animateLayoutChanges="true"
-        android:background="@drawable/tab_indicator"
-        android:paddingStart="2dp"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabIndicator="@drawable/tab_indicator"
-        app:tabIndicatorColor="@color/base"
-        app:tabIndicatorGravity="stretch"
-        app:tabMode="scrollable"
-        app:tabPadding="2dp"
-        app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/base" />
+        app:navGraph="@navigation/home_nav" />
+
+
+<!--    <com.simform.custombottomnavigation.SSCustomBottomNavigation-->
+<!--        android:id="@+id/bottomNavigation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:ss_backgroundBottomColor="@color/white"-->
+<!--        app:ss_circleColor="#ff6f00"-->
+<!--        app:ss_countBackgroundColor="#ff6f00"-->
+<!--        app:ss_countTextColor="#ffffff"-->
+<!--        app:ss_defaultIconColor="@color/dark_gray"-->
+<!--        app:ss_iconTextColor="@color/dark_gray"-->
+<!--        app:ss_iconTextSize="14sp"-->
+<!--        app:ss_rippleColor="#2f424242"-->
+<!--        app:ss_selectedIconColor="@color/base"-->
+<!--        app:ss_selectedIconTextColor="@color/base"-->
+<!--        app:ss_shadowColor="#1f212121"-->
+<!--        app:ss_waveHeight="9" />-->
+
+    <np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cbn_fabBg="@color/base"
+        app:cbn_elevation="12dp"
+        app:cbn_selectedColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
