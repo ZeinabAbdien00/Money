@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_money"
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -279,7 +279,7 @@
                     android:layout_marginBottom="80dp"
                     android:background="@drawable/main_button"
                     android:backgroundTint="@color/white"
-                    android:text="@string/login"
+                    android:text="@string/sign_up"
                     android:textAllCaps="false"
                     android:textColor="@color/base"
                     android:textSize="16sp"
