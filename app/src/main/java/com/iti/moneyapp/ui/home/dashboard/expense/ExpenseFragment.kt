@@ -21,7 +21,7 @@ class ExpenseFragment : Fragment() {
 
     private lateinit var binding: FragmentExpenseBinding
     private lateinit var newsAdapter: HomeRVAdapter
-//    private var dao: HomeDao? = null
+    private var dao: HomeDao? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,31 +36,19 @@ class ExpenseFragment : Fragment() {
         setupRV()
     }
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        context?.let { context ->
-//            GlobalScope.launch(Dispatchers.IO) {
-//                val db = HomeDatabase.buildHomeDb(context)
-//                dao = db?.getDao()
-//            }
-//        }
-//    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        context?.let { context ->
+            GlobalScope.launch(Dispatchers.IO) {
+                val db = HomeDatabase.buildHomeDb(context)
+                dao = db?.getDao()
+                dao!!.insertNote(setUpFriendsArrayList())
+                Log.d("suzan", dao!!.viewNotes().toString())
+            }
+        }
+    }
 
     private fun setupRV() {
-
-//        context?.let { context ->
-//            GlobalScope.launch(Dispatchers.IO) {
-//                val db = HomeDatabase.buildHomeDb(context)
-//                dao = db?.getDao()
-//
-//                withContext(Dispatchers.Main) {
-//                    // Update UI elements with the result
-//                    dao!!.insertNote(HomeModel(10, "Sports10", 200))
-//                    Log.d("suzan", dao!!.viewNotes().toString())
-//
-//                }
-//            }
-//        }
 
         newsAdapter = HomeRVAdapter()
         newsAdapter.differ.submitList(setUpFriendsArrayList().toList())
