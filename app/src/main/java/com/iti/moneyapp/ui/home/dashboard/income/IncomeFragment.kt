@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.iti.moneyapp.databinding.FragmentIncomeBinding
-import com.iti.moneyapp.model.home.HomeRVModel
 import com.iti.moneyapp.adapter.home.HomeRVAdapter
 import com.iti.moneyapp.model.db.HomeModel
 
@@ -16,13 +15,13 @@ class IncomeFragment : Fragment() {
     private lateinit var binding: FragmentIncomeBinding
     private lateinit var newsAdapter: HomeRVAdapter
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View {
-//        binding = FragmentIncomeBinding.inflate(layoutInflater)
-//        return binding.root
-//    }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentIncomeBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
