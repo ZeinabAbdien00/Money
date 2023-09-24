@@ -12,11 +12,5 @@ interface HomeDao {
     @Query("select * from HomeModel")
     fun viewNotes(): List<HomeModel>
 
-//    @Delete
-//    suspend fun deleteNote(model: HomeModel)
-//
-//    @Update
-//    fun updateNote(model: HomeModel)
-
 
 }
