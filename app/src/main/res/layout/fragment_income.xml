@@ -44,12 +44,12 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="50dp"
                 android:padding="4dp"
+                android:src="@drawable/ic_person"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/iv_shape"
                 app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
                 app:strokeColor="@color/white"
-                app:strokeWidth="2dp"
-                android:src="@drawable/ic_person" />
+                app:strokeWidth="2dp" />
 
             <TextView
                 android:id="@+id/tv_user_name"
@@ -111,8 +111,8 @@
         android:id="@+id/income_rv_item_home"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingBottom="50dp"
         android:layout_marginBottom="5dp"
+        android:paddingBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
