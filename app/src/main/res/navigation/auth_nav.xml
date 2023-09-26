@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/startFragment"
         android:name="com.iti.moneyapp.ui.setup.start.StartFragment"
-        android:label="StartFragment" >
+        android:label="StartFragment">
         <action
             android:id="@+id/action_startFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
