@@ -7,11 +7,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.iti.moneyapp.ui.home.dashboard.expense.ExpenseFragment
 import com.iti.moneyapp.ui.home.dashboard.income.IncomeFragment
 
-class TapViewPagerAdapter (fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+class TapViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
-        return  2
+        return 2
     }
 
     override fun createFragment(position: Int): Fragment {

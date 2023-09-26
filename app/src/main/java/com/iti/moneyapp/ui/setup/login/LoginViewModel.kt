@@ -1,12 +1,9 @@
 package com.iti.moneyapp.ui.setup.login
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.iti.moneyapp.MyApplication.Companion.dataStore
-import com.iti.moneyapp.data.datastore.DataStoreImplementation
 import com.iti.moneyapp.model.auth.AuthModel
 import com.iti.moneyapp.ui.setup.SetupRepository
 import com.iti.moneyapp.utils.validation.*
@@ -27,7 +24,6 @@ class LoginViewModel : ViewModel() {
 
     private val _errorLogin = MutableLiveData<String>()
     val errorLogin: LiveData<String> = _errorLogin
-
 
     fun isValidLogin(email: String, password: String): Boolean {
 

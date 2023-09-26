@@ -1,12 +1,13 @@
 package com.iti.moneyapp.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.NavGraph
+import androidx.navigation.findNavController
 import com.iti.moneyapp.R
 import com.iti.moneyapp.adapter.home.TapViewPagerAdapter
 import com.iti.moneyapp.databinding.ActivityHomeBinding
-import com.simform.custombottomnavigation.Model
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 
 class HomeActivity : AppCompatActivity() {
@@ -67,7 +68,6 @@ class HomeActivity : AppCompatActivity() {
 //        }
 
 
-
         val menuItems = arrayOf(
             CbnMenuItem(
                 R.drawable.ic_home, // the icon
@@ -84,28 +84,13 @@ class HomeActivity : AppCompatActivity() {
                 R.drawable.avd_setting,
                 R.id.settingFragment
             )
-//            CbnMenuItem(
-//                R.drawable.ic_settings,
-//                R.drawable.avd_home,
-//                R.id.startFragment
-//            ),
-//            CbnMenuItem(
-//                R.drawable.ic_person,
-//                R.drawable.avd_profile,
-//                R.id.loginFragment
-//            ),
-//            CbnMenuItem(
-//                R.drawable.ic_lock,
-//                R.drawable.avd_settings,
-//                R.id.signUpFragment
-//            )
         )
         binding.navView.setMenuItems(menuItems, 0)
 
         binding.navView.setOnMenuItemClickListener { cbnMenuItem, i ->
-            if (i ==0) setFindNavController(R.id.dashboardFragment)
-            if (i ==1) setFindNavController(R.id.addFragment)
-            if (i ==2) setFindNavController(R.id.settingFragment)
+            if (i == 0) setFindNavController(R.id.dashboardFragment)
+            if (i == 1) setFindNavController(R.id.addFragment)
+            if (i == 2) setFindNavController(R.id.settingFragment)
 
         }
     }

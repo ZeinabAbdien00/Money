@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.iti.moneyapp.MyApplication.Companion.dataStore
-import com.iti.moneyapp.R
-import com.iti.moneyapp.data.datastore.DataStoreImplementation
 import com.iti.moneyapp.databinding.ActivitySetupBinding
 import com.iti.moneyapp.ui.home.HomeActivity
 import kotlinx.coroutines.Dispatchers
@@ -35,7 +33,7 @@ class SetupActivity : AppCompatActivity() {
                 startActivity(Intent(this@SetupActivity, HomeActivity::class.java))
                 splashScreen.setKeepOnScreenCondition { false }
                 this@SetupActivity.finish()
-            }else{
+            } else {
                 splashScreen.setKeepOnScreenCondition { false }
 
             }

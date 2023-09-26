@@ -1,10 +1,10 @@
 package com.iti.moneyapp.ui.home.setting
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.iti.moneyapp.R
 
 class SettingFragment : Fragment() {

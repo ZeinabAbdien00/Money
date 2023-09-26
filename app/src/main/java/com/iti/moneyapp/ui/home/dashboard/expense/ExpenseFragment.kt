@@ -1,7 +1,6 @@
 package com.iti.moneyapp.ui.home.dashboard.expense
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,6 @@ import com.iti.moneyapp.model.db.HomeModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class ExpenseFragment : Fragment() {
 
@@ -43,7 +41,6 @@ class ExpenseFragment : Fragment() {
                 val db = HomeDatabase.buildHomeDb(context)
                 dao = db?.getDao()
                 dao!!.insertNote(setUpFriendsArrayList())
-                Log.d("suzan", dao!!.viewNotes().toString())
             }
         }
     }

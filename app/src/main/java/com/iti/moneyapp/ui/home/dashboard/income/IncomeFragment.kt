@@ -1,13 +1,13 @@
 package com.iti.moneyapp.ui.home.dashboard.income
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.iti.moneyapp.databinding.FragmentIncomeBinding
 import com.iti.moneyapp.adapter.home.HomeRVAdapter
+import com.iti.moneyapp.databinding.FragmentIncomeBinding
 import com.iti.moneyapp.model.db.HomeModel
 
 class IncomeFragment : Fragment() {
