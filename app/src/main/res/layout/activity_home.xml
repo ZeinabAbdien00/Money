@@ -19,33 +19,33 @@
         app:navGraph="@navigation/home_nav" />
 
 
-<!--    <com.simform.custombottomnavigation.SSCustomBottomNavigation-->
-<!--        android:id="@+id/bottomNavigation"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:ss_backgroundBottomColor="@color/white"-->
-<!--        app:ss_circleColor="#ff6f00"-->
-<!--        app:ss_countBackgroundColor="#ff6f00"-->
-<!--        app:ss_countTextColor="#ffffff"-->
-<!--        app:ss_defaultIconColor="@color/dark_gray"-->
-<!--        app:ss_iconTextColor="@color/dark_gray"-->
-<!--        app:ss_iconTextSize="14sp"-->
-<!--        app:ss_rippleColor="#2f424242"-->
-<!--        app:ss_selectedIconColor="@color/base"-->
-<!--        app:ss_selectedIconTextColor="@color/base"-->
-<!--        app:ss_shadowColor="#1f212121"-->
-<!--        app:ss_waveHeight="9" />-->
+    <!--    <com.simform.custombottomnavigation.SSCustomBottomNavigation-->
+    <!--        android:id="@+id/bottomNavigation"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="bottom"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:ss_backgroundBottomColor="@color/white"-->
+    <!--        app:ss_circleColor="#ff6f00"-->
+    <!--        app:ss_countBackgroundColor="#ff6f00"-->
+    <!--        app:ss_countTextColor="#ffffff"-->
+    <!--        app:ss_defaultIconColor="@color/dark_gray"-->
+    <!--        app:ss_iconTextColor="@color/dark_gray"-->
+    <!--        app:ss_iconTextSize="14sp"-->
+    <!--        app:ss_rippleColor="#2f424242"-->
+    <!--        app:ss_selectedIconColor="@color/base"-->
+    <!--        app:ss_selectedIconTextColor="@color/base"-->
+    <!--        app:ss_shadowColor="#1f212121"-->
+    <!--        app:ss_waveHeight="9" />-->
 
     <np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cbn_fabBg="@color/base"
         app:cbn_elevation="12dp"
+        app:cbn_fabBg="@color/base"
         app:cbn_selectedColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
