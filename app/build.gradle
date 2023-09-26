@@ -58,8 +58,10 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
 
+    //SSCustom navigation
     implementation 'com.github.simformsolutions:SSCustomBottomNavigation:3.2'
 
+    //Susanthapa navigation
     implementation 'np.com.susanthapa:curved_bottom_navigation:0.6.5'
 
     // Architectural Components
@@ -112,7 +114,7 @@ dependencies {
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.14.2'
 
-    //viewmodel
+    //viewModel
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
