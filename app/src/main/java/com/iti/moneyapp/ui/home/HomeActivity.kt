@@ -20,37 +20,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//
-//        adapter = TapViewPagerAdapter(supportFragmentManager, lifecycle)
-//
-//        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Income"))
-//        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Expense"))
-//
-//        binding.viewPager.adapter = adapter
-
-//        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-//            override fun onTabSelected(tab: TabLayout.Tab?) {
-//                if (tab != null)
-//                    binding.viewPager.currentItem = tab.position
-//            }
-//
-//            override fun onTabUnselected(tab: TabLayout.Tab?) {
-//
-//            }
-//
-//            override fun onTabReselected(tab: TabLayout.Tab?) {
-//
-//
-//            }
-//        })
-
-//        binding.viewPager.registerOnPageChangeCallback(object :
-//            ViewPager2.OnPageChangeCallback() {
-//            override fun onPageSelected(position: Int) {
-//                super.onPageSelected(position)
-//                binding.tabLayout.selectTab(binding.tabLayout.getTabAt(position))
-//            }
-//        })
 
 //        setBottomNavigationInNormalWay()
 //
