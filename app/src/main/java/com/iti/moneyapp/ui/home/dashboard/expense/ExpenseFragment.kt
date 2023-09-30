@@ -49,7 +49,7 @@ class ExpenseFragment : Fragment() {
 
         newsAdapter = HomeRVAdapter()
         newsAdapter.differ.submitList(setUpFriendsArrayList().toList())
-        binding.rvItemHome.apply {
+        binding.expenseLayout.rvItemHome.apply {
             adapter = newsAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         }

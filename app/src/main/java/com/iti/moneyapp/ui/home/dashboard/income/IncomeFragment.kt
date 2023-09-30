@@ -31,7 +31,7 @@ class IncomeFragment : Fragment() {
     private fun setupRV() {
         newsAdapter = HomeRVAdapter()
         newsAdapter.differ.submitList(setUpFriendsArrayList().toList())
-        binding.incomeRvItemHome.apply {
+        binding.incomeLayout.rvItemHome.apply {
             adapter = newsAdapter
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         }
