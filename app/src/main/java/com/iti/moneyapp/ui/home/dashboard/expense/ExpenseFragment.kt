@@ -23,7 +23,7 @@ class ExpenseFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentExpenseBinding.inflate(layoutInflater)
         return binding.root
