@@ -40,15 +40,6 @@ class IncomeFragment : Fragment() {
     private fun setUpFriendsArrayList(): ArrayList<HomeModel> {
         val dummyFriendData = ArrayList<HomeModel>()
         dummyFriendData.add(0, HomeModel(0, "Sports Suzan Suzan Suzan", 200))
-        dummyFriendData.add(1, HomeModel(1, "Sports1", 200))
-        dummyFriendData.add(2, HomeModel(2, "Sports2", 200))
-        dummyFriendData.add(3, HomeModel(3, "Sports3", 200))
-        dummyFriendData.add(4, HomeModel(4, "Sports4", 200))
-        dummyFriendData.add(5, HomeModel(5, "Sports5", 200))
-        dummyFriendData.add(6, HomeModel(6, "Sports6", 200))
-        dummyFriendData.add(7, HomeModel(7, "Sports7", 200))
-        dummyFriendData.add(8, HomeModel(8, "Sports8", 200))
-        dummyFriendData.add(9, HomeModel(9, "Sports9", 200))
 
         return dummyFriendData
     }
